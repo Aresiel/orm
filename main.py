@@ -1,5 +1,9 @@
 from discord.ext import commands
+from colorama import init, deinit
 import config
+import helpers
+
+init()
 
 bot = commands.AutoShardedBot(
     command_prefix=config.prefix,
@@ -8,7 +12,12 @@ bot = commands.AutoShardedBot(
     description=config.description
 )
 
-for module in config.modules:
-    bot.load_extension(module)
+for extension in config.modules:
+    try:
+        bot.load_extension(extension)
+        helpers.info(f'Loaded {extension}')
+    except:
+        helpers.warn(f'Failed to load {extension}')
 
 bot.run(config.token)
+deinit()

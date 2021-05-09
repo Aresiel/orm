@@ -5,6 +5,11 @@ name = "pypi"
 
 [packages]
 "discord.py" = "*"
+aiohttp = "*"
+asyncio = "*"
+colorama = "*"
+jishaku = "*"
+nanoid = "*"
 
 [dev-packages]
 
