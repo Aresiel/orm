@@ -12,7 +12,7 @@ bot = commands.AutoShardedBot(
     description=config.description
 )
 
-for extension in config.modules:
+for extension in config.extensions:
     try:
         bot.load_extension(extension)
         helpers.info(f'Loaded {extension}')
